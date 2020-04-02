@@ -2,24 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="da634ce9-3f6d-4852-9e0b-f3719d03cf9f" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../HW2/src/main/java/Course.java" beforeDir="false" afterPath="$PROJECT_DIR$/../HW2/src/main/java/Course.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../HW2/src/main/java/Student.java" beforeDir="false" afterPath="$PROJECT_DIR$/../HW2/src/main/java/Student.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../_mac/applicationLibraries.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../_mac/keymap.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../_mac/laf.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../_mac/path.macros.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../androidStudioFirstRun.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../baseRefactoring.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../codestyles/Default.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../codota.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../debugger.renderers.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../debugger.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ide.general.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../lombok-plugin.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../project.default.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../projectView.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../scala.xml" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -94,7 +78,7 @@
     <session id="-546030704">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="1" />
+          <entry key="project.closed" value="2" />
           <entry key="project.open.time.1" value="1" />
           <entry key="project.open.time.7" value="1" />
           <entry key="project.opened" value="2" />
