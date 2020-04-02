@@ -20,10 +20,6 @@ public class Greeter extends Counter {
 
     }
 
-    public String sayHello (int age){
-        return "Only letter are accepted";
-    }
-
     public String sayHello (boolean friend){
         if (friend == true){
             return "Hello my friend!";

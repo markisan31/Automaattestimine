@@ -9,6 +9,7 @@ import org.mockito.junit.MockitoJUnitRunner;
 
 import static org.hamcrest.CoreMatchers.containsString;
 import static org.junit.Assert.assertThat;
+import static org.junit.Assert.assertTrue;
 
 
 @RunWith(MockitoJUnitRunner.class)
@@ -23,8 +24,20 @@ public class GreeterTest {
     Counter cnt;
 
     @Test
-    public void greeterSaysHello() {
+    public void greeterSaysNameAndLength() {
         assertThat(greeter.sayHello(name), containsString("Hello, " + name + ". You name contains " + length + " letters"));
+
+    }
+
+    @Test
+    public void greeterSaysHello(){
+        assertThat(greeter.sayHello(), containsString("Hello world!"));
+
+    }
+
+    @Test
+    public void greeterSayFriendOrNot(){
+        assertThat(greeter.sayHello(true), containsString("Hello my friend!"));
 
     }
 
