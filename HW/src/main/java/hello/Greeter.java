@@ -1,29 +1,21 @@
 package hello;
 
 public class Greeter extends Counter {
-    public String sayHello() {
-        return "Hello world!";
-    }
+    Counter count = new Counter();
 
     public String sayHello(String name){
-        Counter count = new Counter();
-
-        if (count.checkLength(name) < 4 || count.checkLength(name) > 10)
-            return "Wrong name";
 
 
-        return "Hello, " + name + ". You name contains " + count.checkLength(name) + " letters";
+        int length = count.checkLength(name);
+
+        if (length < 4 )
+            return "Small name";
+
+        else if (length > 10)
+            return "Big name";
+        else
+            return String.format("Hello, %s. You name contains %d letters.", name, length);
     }
 
-    public String sayHello (String name, String surname ){
-        return "You name is: " + name + " and surname is: " + surname;
 
-    }
-
-    public String sayHello (boolean friend){
-        if (friend == true){
-            return "Hello my friend!";
-        }
-        return "Sorry, I don't know You";
-    }
 }
