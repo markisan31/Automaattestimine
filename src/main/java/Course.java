@@ -1,29 +1,33 @@
+
+import java.time.ZonedDateTime;
+
 public class Course {
 
     public String courseName;
-    public int sumOfEAP;
-    public int maxStudentsQuantity;
-    public int startDate;
-    public int endDate;
+    public Integer EAP;
+    public Integer maxStudentsQuantity;
+    public ZonedDateTime startDate;
+    public ZonedDateTime endDate;
     public Teacher teacher;
 
     public String getCourseName() {
         return courseName;
     }
 
-    public int getSumOfEAP() {
-        return sumOfEAP;
+    public Integer getEAP() {
+        return EAP;
     }
 
-    public int getMaxStudentsQuantity() {
+    public Integer getMaxStudentsQuantity() {
         return maxStudentsQuantity;
     }
 
-    public int getStartDate() {
+
+    public ZonedDateTime getStartDate() {
         return startDate;
     }
 
-    public int getEndDate() {
+    public ZonedDateTime getEndDate() {
         return endDate;
     }
 

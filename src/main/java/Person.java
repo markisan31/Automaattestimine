@@ -1,14 +1,14 @@
+import java.time.ZonedDateTime;
+
 public interface Person {
 
     String getFullName();
 
     String getFirstName();
 
-    String getPreferredName();
+    ZonedDateTime getDateOfBirth();
 
-    String getDateOfBirth();
-
-    int getAge();
+    Long getAge();
 
     void sayHello();
 
