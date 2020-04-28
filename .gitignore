@@ -36,5 +36,13 @@ buildNumber.properties
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
 .idea/
+_mac/
+debugger.renderers.xml
+debugger.xml
+ignore.xml
+lombok-plugin.xml
+scala.xml
+toStringTemplates.xml
+vcs.xml
 
 
