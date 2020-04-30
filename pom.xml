@@ -12,10 +12,28 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.8.0</version>
                 <configuration>
                     <source>8</source>
                     <target>8</target>
                 </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.pitest</groupId>
+                <artifactId>pitest-maven</artifactId>
+                <version>1.5.1</version>
+                <!--<dependencies>-->
+                    <!--<dependency>-->
+                        <!--<groupId>org.pitest</groupId>-->
+                        <!--<artifactId>pitest-junit4-plugin</artifactId>-->
+                        <!--<version>0.8</version>-->
+                    <!--</dependency>-->
+                <!--</dependencies>-->
+                <!--<configuration>-->
+                <!--<targetClasses>-->
+                    <!--<param>/Users/markkalda/Desktop/Automaattestimine/HW2/target/classes.*</param>-->
+                <!--</targetClasses>-->
+                <!--</configuration>-->
             </plugin>
         </plugins>
     </build>
@@ -39,6 +57,13 @@
             <artifactId>mockito-core</artifactId>
             <version>3.3.3</version>
             <scope>test</scope>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.json/json -->
+        <dependency>
+            <groupId>org.json</groupId>
+            <artifactId>json</artifactId>
+            <version>20190722</version>
         </dependency>
 
     </dependencies>

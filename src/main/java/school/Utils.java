@@ -1,3 +1,5 @@
+package school;
+
 import java.util.List;
 
 public class Utils {
@@ -9,11 +11,4 @@ public class Utils {
         }
 
     }
-
-    public List<String> getAllTeacherNames() {
-        return this.getCourses().stream()
-                .map(Course::getName)
-                .collect(Collectors.toList());
-
-
 }

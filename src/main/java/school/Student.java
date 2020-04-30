@@ -1,3 +1,5 @@
+package school;
+
 import java.time.ZonedDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -13,7 +15,7 @@ public class Student extends PersonImpl {
     }
 
     public List<Course> getCourses() {
-        return courses;
+        return this.courses;
     }
 
     public void setCourses(List<Course> courses) {

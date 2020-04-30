@@ -1,3 +1,5 @@
+package school;
+
 import java.time.ZonedDateTime;
 
 public class Teacher extends PersonImpl {
