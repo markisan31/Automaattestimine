@@ -18,6 +18,13 @@ public class Course {
     PublicHolidayService service = new PublicHolidayService();
 
 
+    public Course(String courseName, Integer EAP, ZonedDateTime startDate, ZonedDateTime endDate) {
+        this.courseName = courseName;
+        this.EAP = EAP;
+        this.startDate = startDate;
+        this.endDate = endDate;
+    }
+
     public Course(ZonedDateTime startDate, ZonedDateTime endDate) {
         this.startDate = startDate;
         this.endDate = endDate;
@@ -53,6 +60,15 @@ public class Course {
 
     public Long getLength() {
         return ChronoUnit.DAYS.between(startDate.minusDays(1), endDate);
+    }
+
+    @Override
+    public String toString() {
+        return "Course{" +
+                "courseName='" + courseName + '\'' +
+                ", startDate=" + startDate +
+                ", endDate=" + endDate +
+                '}';
     }
 
     public int getWorkingDays() throws IOException {
