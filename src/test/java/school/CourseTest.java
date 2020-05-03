@@ -3,8 +3,7 @@ package school;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.*;
-import school.Course;
-import school.PublicHolidayService;
+import Services.PublicHolidayService;
 
 import java.time.ZonedDateTime;
 
@@ -73,7 +72,7 @@ public class CourseTest {
     }
 
     @Test(expected = IllegalArgumentException.class)
-    public void getWorkingDaysWhileServiceReturnMinusOne() {
+    public void getWorkingDaysWhileServiceReturnMinusOne() throws Exception {
 //        given
         when(service.getNumberOfPublicHolidaysOnWorkingDays(startDate, endDate)).thenReturn(-1);
 
@@ -83,20 +82,21 @@ public class CourseTest {
     }
 
     @Test
-    public void getWorkingDaysWhileServiceReturnNormalNumber() {
+    public void getWorkingDaysWhileServiceReturnNormalNumber()throws Exception{
 //        given
         when(service.getNumberOfPublicHolidaysOnWorkingDays(startDate, endDate)).thenReturn(1);
 
 //        when
-        int workingDays = course.getWorkingDays();
+        Integer workingDays = course.getWorkingDays();
+        Integer expected = 2;
 
 //        then
-        assertEquals(2, workingDays);
+        assertEquals(expected, workingDays);
 
     }
 
     @Test(expected = NullPointerException.class)
-    public void getWorkingDaysWhileServiceReturnNullStatement() {
+    public void getWorkingDaysWhileServiceReturnNullStatement() throws Exception{
 //        given
         when(service.getNumberOfPublicHolidaysOnWorkingDays(startDate, endDate)).thenReturn(null);
 
@@ -106,7 +106,7 @@ public class CourseTest {
     }
 
     @Test(expected = IllegalArgumentException.class)
-    public void getWorkingDaysWhileServiceReturnZero() {
+    public void getWorkingDaysWhileServiceReturnZero() throws Exception{
 //        given
         when(service.getNumberOfPublicHolidaysOnWorkingDays(startDate, endDate)).thenReturn(0);
 
@@ -116,7 +116,7 @@ public class CourseTest {
     }
 
     @Test(expected = IllegalArgumentException.class)
-    public void getWorkingDaysWhileServiceReturnException() {
+    public void getWorkingDaysWhileServiceReturnException() throws Exception{
 //        given
         when(service.getNumberOfPublicHolidaysOnWorkingDays(startDate, endDate)).thenThrow(IllegalArgumentException.class);
 

@@ -1,9 +1,11 @@
-package school;
+package Services;
 
 import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.BufferedReader;
+import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.URL;
 import java.net.URLConnection;
@@ -14,16 +16,30 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
-public class PublicHolidayService {
+public class  PublicHolidayService {
 
     private static final String COUNTRY_CODE = "EE";
-    private static final String API_URL = "https://date.nager.at/api/v2/PublicHolidays/";
+    private static final String API_URL = "https://date.nager.at/api/v2/PublicHolidays";
 
-    public Integer getNumberOfPublicHolidaysOnWorkingDays(ZonedDateTime startDate, ZonedDateTime endDate) {
+    private String baseUrl;
+
+    public PublicHolidayService() {
+        this.baseUrl = API_URL;
+    }
+
+    public PublicHolidayService(String url) {
+        this.baseUrl = url;
+    }
+
+    public Integer getNumberOfPublicHolidaysOnWorkingDays(ZonedDateTime startDate, ZonedDateTime endDate) throws IOException, JSONException{
+        return getNumberOfPublicHolidaysOnWorkingDays(startDate, endDate, baseUrl);
+    }
+
+    public Integer getNumberOfPublicHolidaysOnWorkingDays(ZonedDateTime startDate, ZonedDateTime endDate, String apiUrl)throws IOException, JSONException {
         List<ZonedDateTime> result = new ArrayList<>();
-        String composedUrl = API_URL + String.valueOf(endDate.getYear()) + "/" + COUNTRY_CODE;
+        String composedUrl = apiUrl + "/" + String.valueOf(endDate.getYear()) + "/" + COUNTRY_CODE;
 
-        try {
+
             URL url = new URL(composedUrl);
             URLConnection yc = url.openConnection();
             BufferedReader in = new BufferedReader(new InputStreamReader(yc.getInputStream()));
@@ -43,21 +59,20 @@ public class PublicHolidayService {
             }
             in.close();
 
-            int holydayCount = 0;
+            Integer holydayCount = 0;
+
 
             for (int i = 0; i < result.size(); i++) {
-                if (result.get(i).isAfter(startDate.minusDays(1)) && result.get(i).isBefore(endDate)) {
-                    if (result.get(i).getDayOfWeek().getValue() != 6 && result.get(i).getDayOfWeek().getValue() != 7) {
+                ZonedDateTime zonedDateTime = result.get(i);
+                if (zonedDateTime.isAfter(startDate) || zonedDateTime.isEqual(startDate) && zonedDateTime.isBefore(endDate)) {
+                    if (zonedDateTime.getDayOfWeek().getValue() != 6 && zonedDateTime.getDayOfWeek().getValue() != 7) {
                         holydayCount++;
                     }
                 }
             }
 
             return holydayCount;
-        } catch (Exception ex) {
-            // alas
-        }
-        return null;
+
 
     }
 

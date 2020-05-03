@@ -1,7 +1,11 @@
 package school;
 
+import Services.PublicHolidayService;
+
+import java.io.IOException;
 import java.time.ZonedDateTime;
 import java.time.temporal.ChronoUnit;
+import java.util.stream.IntStream;
 
 public class Course {
 
@@ -51,17 +55,17 @@ public class Course {
         return ChronoUnit.DAYS.between(startDate.minusDays(1), endDate);
     }
 
-    public int getWorkingDays() {
+    public int getWorkingDays() throws IOException {
 
         Integer holidaysOnWorkingDays = service.getNumberOfPublicHolidaysOnWorkingDays(startDate, endDate);
+
         if (endDate.isAfter(startDate) && holidaysOnWorkingDays > 0) {
 
-//            school.PublicHolidayService service = new school.PublicHolidayService();
             final int startW = startDate.minusDays(1).getDayOfWeek().getValue();
             final int endW = endDate.getDayOfWeek().getValue();
-//            Integer holidaysOnWorkingDays = 0;
 
             final int days = (int) ChronoUnit.DAYS.between(startDate.minusDays(1), endDate);
+
             int result = days - 2 * (days / 7); //remove weekends
 
             if (days % 7 != 0) { //deal with the rest days
@@ -73,16 +77,15 @@ public class Course {
                     result -= 2;
                 }
             }
-//            holidaysOnWorkingDays = service.getNumberOfPublicHolidaysOnWorkingDays(startDate, endDate);
 
 
             return result - holidaysOnWorkingDays;
         } else if (holidaysOnWorkingDays < 0) {
-            throw new IllegalArgumentException("Service are - 1");
+            throw new IllegalArgumentException("Service returns - 1");
         } else if (holidaysOnWorkingDays == 0) {
-            throw new IllegalArgumentException("Service are 0");
+            throw new IllegalArgumentException("Service returns 0");
         } else if (holidaysOnWorkingDays == null) {
-            throw new IllegalArgumentException("Service are null");
+            throw new IllegalArgumentException("Service returns null");
         } else if (holidaysOnWorkingDays.equals(Exception.class)) {
             throw new IllegalArgumentException("Service throws exception");
         } else {
