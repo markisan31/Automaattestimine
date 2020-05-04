@@ -25,8 +25,8 @@ public class WorkDays extends HttpServlet{
     ZonedDateTime endDate = ZonedDateTime.parse("2020-12-31T00:00:00.000+00:00[UTC]");
 
     private Course course = new Course("Robootika", 10, startDate, endDate);
-    private Course course1 = new Course("AT",6, startDate.minusWeeks(6),  endDate.plusMonths(6));
-    private Course course2 = new Course("Math",5, startDate.minusYears(1).minusDays(37), endDate.minusYears(1).plusDays(45));
+    private Course course1 = new Course("AT",6, startDate.plusMonths(6),  endDate.plusMonths(6));
+    private Course course2 = new Course("Math",5, startDate.minusYears(1).minusDays(37), endDate.minusYears(2).plusDays(45));
 
     public Course [] courses = {course, course1, course2};
 
@@ -36,7 +36,7 @@ public class WorkDays extends HttpServlet{
             throws ServletException, IOException {
 
         String id = request.getParameter("id");
-        
+
         response.setContentType("text/html");
         response.setStatus(HttpServletResponse.SC_OK);
 

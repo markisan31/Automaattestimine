@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.time.ZonedDateTime;
+import java.time.format.DateTimeFormatter;
 
 public class CourseList extends HttpServlet {
 
@@ -18,9 +19,11 @@ public class CourseList extends HttpServlet {
     ZonedDateTime startDate = ZonedDateTime.parse("2020-01-02T00:00:00.000+00:00[UTC]");
     ZonedDateTime endDate = ZonedDateTime.parse("2020-12-31T00:00:00.000+00:00[UTC]");
 
+    DateTimeFormatter format = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+
     private Course course = new Course("Robootika", 10, startDate, endDate);
-    private Course course1 = new Course("AT",6, startDate.minusWeeks(6),  endDate.plusMonths(6));
-    private Course course2 = new Course("Math",5, startDate.minusYears(1).minusDays(37), endDate.minusYears(1).plusDays(45));
+    private Course course1 = new Course("AT",6, startDate.plusMonths(6),  endDate.plusMonths(6));
+    private Course course2 = new Course("Math",5, startDate.minusYears(1).minusDays(37), endDate.minusYears(2).plusDays(45));
 
     Course [] courses = {course, course1, course2};
 
@@ -36,7 +39,8 @@ public class CourseList extends HttpServlet {
         response.setContentType("text/html");
         response.setStatus(HttpServletResponse.SC_OK);
         for (Course a : courses){
-            response.getWriter().println("<html><h1>"+a.toString()+"</h1></html>");
+//            response.getWriter().println("<html><h1>"+a.toString()+"</h1></html>");
+            response.getWriter().println("<html><h1>"+a.courseName + ", " + a.EAP + " EAP, starting on " + a.startDate.toLocalDateTime().format(format) +  " and finishes " +a.endDate.toLocalDateTime().format(format) +"</h1></html>");
         }
 
     }
