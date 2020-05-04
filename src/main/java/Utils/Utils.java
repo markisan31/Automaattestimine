@@ -1,4 +1,6 @@
-package school;
+package Utils;
+
+import school.Student;
 
 import java.util.List;
 
